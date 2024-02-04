@@ -9,7 +9,14 @@ public class Product {
     private double unitCost = 1;
     private boolean inCurrentProductLine;
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
-       setProductName(productName);
+        if (productName != null){
+            if (productName.length() <=20){
+                this.productName = productName;
+            }
+            else{
+                this.productName = productName.substring(0,20);
+            }
+        }
        setProductCode(productCode);
        setUnitCost(unitCost);
        setInCurrentProductLine(inCurrentProductLine);
@@ -33,11 +40,8 @@ public class Product {
     }
     public void setProductName(String productName) {
         if (productName != null){
-            if (productName.length() <=20){
+            if (productName.length() <= 20) {
                 this.productName = productName;
-            }
-            else{
-                this.productName = productName.substring(0,20);
             }
         }
     }
@@ -54,7 +58,7 @@ public class Product {
         return "Product description: " + productName +
                ", product code: " + productCode +
                ", unit cost: " + unitCost +
-               ", currently in product line: " + inCurrentProductLine;
+               ", currently in product line: " + (inCurrentProductLine ? "Y" : "N");
     }
 
 }
