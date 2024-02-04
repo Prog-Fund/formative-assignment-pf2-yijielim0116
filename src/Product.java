@@ -10,11 +10,11 @@ public class Product {
     private boolean inCurrentProductLine;
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
         if (productName != null){
-            if (productName.length() <=20){
-                this.productName = productName;
+            if (productName.length() >20){
+                this.productName = productName.substring(0,20);
             }
             else{
-                this.productName = productName.substring(0,20);
+                this.productName = productName;
             }
         }
        setProductCode(productCode);
