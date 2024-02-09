@@ -51,14 +51,15 @@ public class Product {
         }
     }
     public void setInCurrentProductLine(boolean inCurrentProductLine) {
-            this.inCurrentProductLine = inCurrentProductLine;
+        this.inCurrentProductLine = inCurrentProductLine;
     }
     public String toString()
     {
+        String inCurrentProductLine = isInCurrentProductLine() ? "Y" : "N";
         return "Product description: " + productName +
                ", product code: " + productCode +
                ", unit cost: " + unitCost +
-               ", currently in product line: " + (inCurrentProductLine ? "Y" : "N");
+               ", currently in product line: " + inCurrentProductLine;
     }
 
 }
